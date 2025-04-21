@@ -7,7 +7,6 @@ A Node.js REST API for managing school data with proximity-based location sortin
 - [Technologies Used](#technologies-used)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Environment Variables](#environment-variables)
 - [API Endpoints](#api-endpoints)
 - [Database Schema](#database-schema)
 - [Testing with Postman](#testing-with-postman)
@@ -47,40 +46,12 @@ A Node.js REST API for managing school data with proximity-based location sortin
    npm install
    ```
 
-3. Set up environment variables:
-   Create a `.env` file in the project root with the required configuration (see Environment Variables section).
+3. Create a `.env` file in the project root (for local development)
 
 4. Start the development server:
    ```bash
    npm run dev
    ```
-
-## Environment Variables
-
-The application supports multiple ways to configure database connections:
-
-```
-# Option 1: Connection URL
-DATABASE_URL=mysql://username:password@hostname:port/database
-
-# Option 2: Railway-specific connection URLs
-MYSQL_PUBLIC_URL=mysql://username:password@hostname:port/database
-MYSQL_URL=mysql://username:password@hostname:port/database
-
-# Option 3: Individual connection parameters
-DB_NAME=schooldb
-DB_USER=username
-DB_PASSWORD=password
-DB_HOST=localhost
-DB_PORT=3306
-
-# Alternative naming for individual parameters (Railway-style)
-MYSQLDATABASE=schooldb
-MYSQLUSER=username
-MYSQLPASSWORD=password
-MYSQLHOST=localhost
-MYSQLPORT=3306
-```
 
 ## API Endpoints
 
@@ -196,25 +167,25 @@ The application uses a `schools` table with the following structure:
 
 A Postman collection is available for testing the API endpoints:
 
+- **Postman Collection Link**: [School Management API Collection](https://www.postman.com/alpha6-2274/workspace/educase/collection/26439466-18898268-bb2a-4ff7-91c4-dfc613e5c95b?action=share&creator=26439466)
+
+### Using the Deployed API
 1. Import the collection into Postman
-2. Update the base URL to match your deployment
-3. Use the provided example requests to test each endpoint
+2. Use the base URL: `https://schoolmanagement-backend-oj1p.onrender.com`
+3. Test the endpoints directly against the deployed version
+
+### Using Local Development
+1. Import the collection into Postman
+2. Change the base URL to: `http://localhost:3000` (or your configured port)
+3. Start your local server with `npm run dev`
+4. Test the endpoints against your local instance
 
 ## Deployment
 
-This application is designed to be easily deployed to various hosting platforms:
+The API is deployed and accessible at:
+- **Live API URL**: [https://schoolmanagement-backend-oj1p.onrender.com](https://schoolmanagement-backend-oj1p.onrender.com)
 
-1. **Railway**:
-   - The application automatically detects Railway environment variables
-   - Connect your repository to Railway for automatic deployment
-
-2. **Generic hosting**:
-   - Set the required environment variables
-   - Run `npm start` to start the application
-
-3. **Local development**:
-   - Set up local environment variables in a `.env` file
-   - Run `npm run dev` to start the development server with hot reloading
+You can test the endpoints directly using this URL or through the provided Postman collection.
 
 ## License
 
